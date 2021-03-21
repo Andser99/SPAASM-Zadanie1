@@ -89,7 +89,7 @@
             inc si
             cmp al, 0Dh               ;compare it with 0d - newline
             jz readLines2_10          ;if its 0d check for 0a and read text2
-            cmp al, 0                 ;if its 0 - EOF skip to done
+            cmp cx, 0                 ;if its 0 - EOF skip to done
             jz doneLines2
             jnz startLines2
         readLines2_10:
