@@ -50,12 +50,14 @@
         donePrintResult:
         
         ;compare the amount of printed lines for paging
+        lea si, printedMax          ;load maximum of printed lines
+        mov al, [si]
+        cmp al, 0
+        jz screenAvailable          ;if printedMax == 0, no paging
         lea di, printedC            ;load printed lines
         mov bl, [di]                
         inc bl                      ;increase printed lines
         mov [di], bl                ;save printed lines
-        lea si, printedMax          ;load maximum of printed lines
-        mov al, [si]
         cmp bl, al                  ;compare with maximum
         jnz screenAvailable         ;if max <> printed, skip to end
             mov [di], 1             ;else reset counter and wait for user input
