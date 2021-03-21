@@ -9,8 +9,8 @@
             equalMsg    db 'strings equal', 10, 13, '$'
             notEqualMsg db 'strings not equal', 10, 13, '$'
             filename    db 15 dup(0)
-            text1       db 255 dup('$')         ;Limits the line length to 252 chars + newline + $
-            text2       db 255 dup('$')
+            text1       db 90 dup('$')         ;Limits the line length to 87 chars + newline + $
+            text2       db 90 dup('$')         ;Real limit with paging is 80 because of console width
             errorMsg    db 'Error', 10, 13, '$'
             doneMsg     db 'Done', 10, 13, '$'
             printedC    dw 1, 1
